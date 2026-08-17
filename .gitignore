@@ -245,3 +245,6 @@ _Pvt_Extensions
 
 # MariaDB files for dev profile
 /mariadb/**
+
+# Config file for Arduino
+/arduino/Config.h
