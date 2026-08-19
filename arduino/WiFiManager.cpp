@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include "WiFiManager.h"
 
-WiFiManager::WiFiManager(const char* ssid, const char* password, String localIp, String gateway, String subnet, String dnsServer = "1.1.1.1") 
+WiFiManager::WiFiManager(const char* ssid, const char* password, String localIp, String gateway, String subnet, String dnsServer) 
   : _ssid(ssid), _password(password) 
 {
   if (!_localIp.fromString(localIp)) {

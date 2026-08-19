@@ -14,7 +14,7 @@ class WiFiManager {
     IPAddress _subnet;
 
   public:
-    WiFiManager(const char* ssid, const char* password, String localIp, String gateway, String subnet, String dnsServer);
+    WiFiManager(const char* ssid, const char* password, String localIp, String gateway, String subnet, String dnsServer = "1.1.1.1");
     void connect();
     void ensureConnectivity();
 };
