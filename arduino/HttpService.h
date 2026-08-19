@@ -7,11 +7,11 @@
 class HttpService {
   private:
     const char* _hostname;
-    WiFiSSLClient _client;
+    WiFiSSLClient& _client;
     uint16_t _port;
 
   public:
-    HttpService(const char* hostname, WiFiSSLClient client, uint16_t port = 443);
+    HttpService(const char* hostname, WiFiSSLClient& client, uint16_t port = 443);
 
     void sendRequest(
       const char* urlPath,

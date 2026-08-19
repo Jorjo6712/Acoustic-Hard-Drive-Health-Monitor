@@ -4,7 +4,7 @@
 
 HttpService::HttpService(
     const char* hostname,
-    WiFiSSLClient client,
+    WiFiSSLClient& client,
     uint16_t port
 )
     : _hostname(hostname), _client(client), _port(port)
