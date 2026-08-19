@@ -1,4 +1,4 @@
-using EntityFramework.Exceptions.MySQL.Pomelo;
+using EntityFramework.Exceptions.PostgreSQL;
 using hdd_health_monitor.Common.Persistence.Interceptors;
 
 namespace hdd_health_monitor.Common.Persistence;
@@ -13,7 +13,7 @@ public static class DependencyInjection
         services.AddScoped<DispatchDomainEventsInterceptor>();
         services.AddSingleton(TimeProvider.System);
 
-        builder.AddMySqlDbContext<ApplicationDbContext>("AppDb",
+        builder.AddNpgsqlDbContext<ApplicationDbContext>("AppDb",
             null,
             options =>
             {

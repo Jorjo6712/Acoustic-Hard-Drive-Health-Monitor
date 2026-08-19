@@ -6,7 +6,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost"></PackageReference>
-    <PackageReference Include="Aspire.Hosting.MySql"></PackageReference>
+    <PackageReference Include="Aspire.Hosting.JavaScript" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL"></PackageReference>
     <PackageReference Include="Aspire.Hosting.Yarp"></PackageReference>
     <PackageReference Include="Shirubasoft.Aspire.CloudflareTunnels"></PackageReference>
     <PackageVersion Include="Aspire.Hosting.MySql" Version="13.4.3"></PackageVersion>

@@ -21,7 +21,7 @@ builder.Services.AddScoped<EntitySaveChangesInterceptor>();
 builder.Services.AddScoped<ICurrentUserService, MigrationUserService>();
 builder.Services.AddSingleton(TimeProvider.System);
 
-builder.AddMySqlDbContext<ApplicationDbContext>("AppDb",
+builder.AddNpgsqlDbContext<ApplicationDbContext>("AppDb",
     null,
     options =>
     {
