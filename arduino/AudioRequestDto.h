@@ -7,22 +7,23 @@
 class AudioRequestDto : public AbstractDto {
   public:
     UUID recordingId;
-    byte[256] audioChunk;
-    unsigned long recordedAt;
+    byte audioChunk[256];
     int sequenceNumber;
 
-    AudioRequestDto(UUID id, byte* audioChunk, unsigned long recordedAt, int sequenceNumber) 
-      : recordingId(recordingId), audioChunk(audioChunk), recordedAt(recordedAt), sequenceNumber(sequenceNumber) 
+    AudioRequestDto(UUID id, const byte* audioChunk, int sequenceNumber) 
+      : recordingId(recordingId), sequenceNumber(sequenceNumber) 
       {
-        memcpy(audioChunk, chunk, 256);
+        memcpy(this->audioChunk, audioChunk, 256);
       }
 
     const char* toJson() override {
       static String json;
       json = "{";
 
-      json += "\"recordingId\":\"" + recordingId.toString() + "\",";
-      json += "\"recordedAt\":" + String(recordedAt) + ",";
+      json += "\"recordingId\":\"";
+      json += recordingId.toCharArray();
+      json += "\",";
+
       json += "\"sequenceNumber\":" + String(sequenceNumber) + ",";
 
       json += "\"audioChunk\":[";
@@ -36,4 +37,4 @@ class AudioRequestDto : public AbstractDto {
 
       return json.c_str();
     }
-}
+};
