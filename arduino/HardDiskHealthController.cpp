@@ -36,11 +36,11 @@ void HardDiskHealthController::record() {
   memset(chunk, 0, 256);
   chunk[0] = (byte)audio;
 
-  sendRequest(chunk, _sequenceNumber);
+  sendRequest(chunk);
 }
 
-void HardDiskHealthController::sendRequest(byte* audio, int sequenceNumber) {
-  AudioRequestDto dto(_recordingId, audio, sequenceNumber);
+void HardDiskHealthController::sendRequest(byte* audio) {
+  AudioRequestDto dto(_recordingId, audio, _sequenceNumber);
   const char* requestBody = dto.toJson();
 
   const char* endpointPath = "/api/record";

@@ -20,7 +20,7 @@ class HardDiskHealthController {
     int _sequenceNumber = 0;
 
     void record();
-    void sendRequest(byte* audio, int sequenceNumber);
+    void sendRequest(byte* audio);
 
   public:
     HardDiskHealthController(Light light, Microphone microphone, Button button, HttpService httpService);
