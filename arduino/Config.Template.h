@@ -9,6 +9,7 @@
 // Pins
 #define RECORD_BUTTON_PIN 6
 #define RECORD_LIGHT_PIN 7
+#define MICROPHONE_PIN A0
 
 // Server
 #define API_HOSTNAME "https://whatever.com"
