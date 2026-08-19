@@ -7,4 +7,4 @@ enum class HttpRequestType {
   POST,
   PUT,
   DELETE
-}
+};
