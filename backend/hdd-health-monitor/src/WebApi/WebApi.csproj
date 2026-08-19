@@ -5,8 +5,6 @@
     <UserSecretsId>bc1e6cf9-bf77-4de7-bfdc-2de7a778673c</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="EntityFrameworkCore.Exceptions.MySQL.Pomelo"></PackageReference>
-    <PackageVersion Include="EntityFrameworkCore.Exceptions.MySQL.Pomelo" Version="8.1.3"></PackageVersion>
     <PackageReference Include="FastEndpoints.Swagger"></PackageReference>
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions"></PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi"></PackageReference>
@@ -18,8 +16,8 @@
     <PackageReference Include="ErrorOr"></PackageReference>
     <PackageReference Include="Vogen"></PackageReference>
     <PackageReference Include="Ardalis.Specification.EntityFrameworkCore"></PackageReference>
-    <PackageReference Include="Aspire.Pomelo.EntityFrameworkCore.MySql"></PackageReference>
-    <PackageVersion Include="Aspire.Pomelo.EntityFrameworkCore.MySql" Version="13.4.6"></PackageVersion>
+    <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL"></PackageReference>
+    <PackageReference Include="EntityFrameworkCore.Exceptions.PostgreSQL"></PackageReference>
     <PackageReference Include="FastEndpoints"></PackageReference>
   </ItemGroup>
   <ItemGroup>

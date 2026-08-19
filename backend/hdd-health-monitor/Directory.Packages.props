@@ -9,16 +9,19 @@
     <PackageVersion Include="Aspire.Hosting.Azure.ApplicationInsights" Version="13.4.3"></PackageVersion>
     <!-- Transitive via Aspire.Hosting 13.4.3; pinned above the 2.5.192 it resolves
          to in order to clear NU1903 (GHSA-hv8m-jj95-wg3x, high severity). -->
+    <PackageVersion Include="Aspire.Hosting.JavaScript" Version="13.5.0"></PackageVersion>
     <PackageVersion Include="Aspire.Hosting.Yarp" Version="13.4.6"></PackageVersion>
     <PackageVersion Include="MessagePack" Version="2.5.302"></PackageVersion>
-    <PackageVersion Include="Aspire.Hosting.Azure.AppService" Version="13.4.3"></PackageVersion>
-    <PackageVersion Include="Aspire.Hosting.Azure.Sql" Version="13.4.3"></PackageVersion>
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.11"></PackageVersion>
     <PackageVersion Include="FastEndpoints.Swagger" Version="7.1.1"></PackageVersion>
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0"></PackageVersion>
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.9">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
+    <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="13.4.3"></PackageVersion>
+    <PackageVersion Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="13.4.3"></PackageVersion>
+    <PackageVersion Include="EntityFrameworkCore.Exceptions.PostgreSQL" Version="10.0.1"></PackageVersion>
     <!-- Pinned to satisfy Aspire 13.4.3's transitive >= 10.0.8 requirement, now
          enforced by transitive pinning. Matches the EF Core 10.0.9 pins. -->
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.9"></PackageVersion>
@@ -43,7 +46,6 @@
   </ItemGroup>
   <ItemGroup Condition="$(IsAspireHost) == 'true'">
     <PackageVersion Include="Aspire.Hosting.AppHost" Version="13.4.3"></PackageVersion>
-    <PackageVersion Include="Aspire.Hosting.SqlServer" Version="13.4.3"></PackageVersion>
   </ItemGroup>
   <ItemGroup Condition="$(IsTestProject) == 'true'">
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1"></PackageVersion>

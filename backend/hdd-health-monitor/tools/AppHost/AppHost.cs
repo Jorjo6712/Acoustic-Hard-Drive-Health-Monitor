@@ -2,24 +2,41 @@ using Projects;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var mariaDb = builder
-    .AddMySql("mariadb")
-    .WithImage("mariadb", "11")
+var tunnel = builder.AddCloudflareTunnel("Lunnel");
+
+var postgres = builder
+    .AddPostgres("postgres")
     .WithDataVolume()
     .WithLifetime(ContainerLifetime.Persistent);
 
-var db = mariaDb
+var db = postgres
     .AddDatabase("AppDb", "app-db");
 
 var migrationService = builder
     .AddProject<MigrationService>("migrations")
     .WithReference(db)
-    .WaitFor(mariaDb);
+    .WaitFor(postgres);
 
 var api = builder
     .AddProject<WebApi>("api")
     .WithExternalHttpEndpoints()
     .WithReference(db)
     .WaitForCompletion(migrationService);
+
+var webapp = builder
+    .AddViteApp("webapp", "../../../../webapp/")
+    .WithReference(api)
+    .WaitFor(api)
+    .WithExternalHttpEndpoints();
+
+
+var gateway = builder.AddYarp("gateway")
+    .WithConfiguration(yarp =>
+    {
+        yarp.AddRoute("/api/{**catch-all}", api);
+        yarp.AddRoute("{**catch-all}", webapp);
+    });
+
+gateway.WithCloudflareTunnel(tunnel, hostname: "harddiskhealth.magnuslund.com");
 
 builder.Build().Run();
