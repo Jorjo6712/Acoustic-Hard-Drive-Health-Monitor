@@ -1,0 +1,7 @@
+﻿namespace hdd_health_monitor.Common.Domain.Teams;
+
+public enum MissionStatus
+{
+    InProgress = 1,
+    Complete = 2
+}
